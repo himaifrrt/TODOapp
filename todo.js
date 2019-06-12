@@ -3,7 +3,7 @@ let list = $('#list');
 const placeholder = $('#plch');
 const addBtn = $('.addBtn');
 const delButton = $('.delBtn');
-//Рандомайзер
+
 const generateId = () => {
     let result = '';
     let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
