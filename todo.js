@@ -1,4 +1,3 @@
-//мой массив
 let data = [];
 let list = $('#list');
 const placeholder = $('#plch');
@@ -14,7 +13,7 @@ const generateId = () => {
     };
     return result;
 };
-//Добавить
+
 const addElem = (text = '', status = false) => {
     const id = generateId();
     return data.push({ id, text, status });
@@ -33,7 +32,7 @@ placeholder.keyup('keyup', function (e) {
         renderList(data);
     };
 });
-//Удалить
+
 const removeItem = (id) => {
     const itemIndex = data.findIndex(el => el.id === id);
     if (~itemIndex) {
@@ -45,7 +44,7 @@ list.on('click', '.delBtn', (event) => {
     removeItem(name);
     renderList(data);
 });
-//кнопка Редактировать
+
 list.on('click', '.editBtn', (event) => {
     const { name } = event.target;
     const element = $(event.target).parent();
@@ -66,7 +65,7 @@ list.on('click', '.editBtn', (event) => {
         })
     )
 });
-//кнопка Сохранить
+
 list.on('click', '.saveBtn', (event) => {
     const { name } = event.target;
     const element = $(event.target).parent();
@@ -86,14 +85,14 @@ let editItem = (params) => {
         itemToEdit.status = status;
     }
 };
-//кнопка Пометить
+
 list.on('click', '.doneBtn', (event) => {
     let { value, name } = event.target;
     value = value === 'true' ? true : false;
     editItem({ id: name, status: !value });
     renderList(data);
 });
-//функция для добавления списка
+
 const renderedItem = itemObject => {
     const { id, text, status } = itemObject;
     const itemClass = (status) => status ? 'done' : 'undone';
